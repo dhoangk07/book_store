@@ -11,6 +11,9 @@
     	<h3><%= link_to book.title, book_path(book) %></h3>
     	<p><%= book.author %></p>
     	<p><%= book.description %></p>
+    	<% if book.publisher.present? %>
+    	  <p>Publisher name: <%= book.publisher.name %></p>
+    	<% end %>
     </li>
 
   <% end %>
