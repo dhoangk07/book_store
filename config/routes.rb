@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :books
+  resources :publishers
 
   root to: 'books#index'
 

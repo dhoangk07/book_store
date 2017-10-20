@@ -44,7 +44,6 @@ class BooksController < ApplicationController
   end
 
 
-
   private
 
   def book_params
