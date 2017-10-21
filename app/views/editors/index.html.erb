@@ -1,0 +1,6 @@
+<h1>Editors</h1>
+
+<% @editors.each do |editor| %>
+  <%= editor.name %>
+  <h3><%= link_to editor.name, editor_path(editor) %></h3>
+ <% end %>

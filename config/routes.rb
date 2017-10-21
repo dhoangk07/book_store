@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :books
   resources :publishers
+  resources :editors
 
   root to: 'books#index'
 

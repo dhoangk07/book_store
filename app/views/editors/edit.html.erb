@@ -1,0 +1,16 @@
+<h1> Edit editors</h1>
+
+<%= form_for @editors do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :local %>
+    <%= f.text_field :local %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
