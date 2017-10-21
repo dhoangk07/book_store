@@ -2,4 +2,5 @@
 
 <% @publishers.each do |publisher| %>
   <%= publisher.name %>
+  <h3><%= link_to publisher.name, publisher_path(publisher) %></h3>
  <% end %>
