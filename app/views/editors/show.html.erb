@@ -1,0 +1,16 @@
+<h1>editor <%= @editor.name %></h1>
+
+<p>
+  <%= @editor.phone %>
+</p>
+
+<p>
+	<%= @editor.birth_year %>
+</p>
+
+<% if @editor.present? %>
+  <p>editor name: <%= @editor.name %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_editor_path(@editor) %>
+<%= link_to 'Destroy', editor_path(@editor), method: :delete %>

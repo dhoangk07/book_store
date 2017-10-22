@@ -1,6 +1,6 @@
 <h1> Editors</h1>
 
-<%= form_for @book do |f| %>
+<%= form_for @editor do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -9,9 +9,6 @@
 
   <%= f.label :birth_year %>
   <%= f.text_area :birth_year %>
-  
-  <%= f.text_area :phone %>
-  <%= f.text_area :phone %>
 
   <%= f.submit %>
 

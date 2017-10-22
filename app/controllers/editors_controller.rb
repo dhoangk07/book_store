@@ -5,30 +5,45 @@ class EditorsController < ApplicationController
 
   	def show
   	# @editor = editor.find(params[:id])
-    @editors = Editor.find_by(id: params[:id])
+    @editor = Editor.find_by(id: params[:id])
 
+	end
+
+    def new
+  	@editor = Editor.new
   	end
+
+  	def create
+  	# params
+  	@editor = Editor.new(editor_params)
+  	if @editor.save
+  		redirect_to editors_path
+  	else
+  		render :new
+  	end
+ 
+  end
   
   	def edit
-  	@editors = editors.find(params[:id])
+  	@editor = Editor.find(params[:id])
   	end
   
   	def destroy
-  	@editors = Editors.find(params[:id])
-  	@editor.destroy
-  	redirect_to editors_path
+  	  @editor = Editor.find(params[:id])
+  	  @editor.destroy
+  	  redirect_to editors_path
   	end
  
   	def update
-  	@editor = Editor.find(params[:id])
-  	if @editor.update_attributes(editor_params)
-  		redirect_to editor_path(@editor)
-  	else
-  		render :edit
-  	end
+	  	@editor = Editor.find(params[:id])
+	  	if @editor.update_attributes(editor_params)
+	  		redirect_to editor_path(@editor)
+	  	else
+	  		render :edit
+	  	end
+    end
 
   	def editor_params
-  	params.require(:editor).permit(:name, :phone, :editor_id)
+  	  params.require(:editor).permit(:name, :phone, :birth_year)
   	end
-  end
  end
