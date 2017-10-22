@@ -1,0 +1,25 @@
+<h1>Customers</h1>
+
+<%= link_to 'New customer', new_customer_path  %>
+<ul>
+
+<% @customers.each do |customer| %>
+
+ 
+ <p>
+
+  <h3>Name: <%= link_to customer.name, customer_path(customer) %></h3>
+
+  <p>
+  sex:
+  <%= customer.sex %></p>
+
+  <p>
+  Age:
+  <%= customer.age %></p>
+ 
+ 
+ <% end %>
+
+
+
