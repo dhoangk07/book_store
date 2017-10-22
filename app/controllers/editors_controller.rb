@@ -6,6 +6,7 @@ class EditorsController < ApplicationController
   	def show
   	# @editor = editor.find(params[:id])
     @editor = Editor.find_by(id: params[:id])
+    @review = @editor.reviews.new
 
 	end
 

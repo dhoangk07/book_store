@@ -1,6 +1,7 @@
 class PublishersController < ApplicationController
   def index
   	@publishers = Publisher.all
+    @publisher = Publisher.new
   end
   
   def show
@@ -8,15 +9,23 @@ class PublishersController < ApplicationController
     @publisher = Publisher.find_by(id: params[:id])
 
   end
-  
+
+  def new
+  	@publisher = Publisher.new
+  end
+
+  def create
+  	# params
+  	@publisher = Publisher.new(publisher_params)
+  	if @publisher.save
+  		redirect_to publishers_path
+  	else
+  		render :new
+  	end
+  end
+
   def edit
   	@publisher = Publisher.find(params[:id])
-  end
-  
-  def destroy
-  	@publisher = Publisher.find(params[:id])
-  	@publisher.destroy
-  	redirect_to publishers_path
   end
  
   def update
