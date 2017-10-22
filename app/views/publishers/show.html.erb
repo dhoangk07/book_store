@@ -10,7 +10,18 @@
 	<%= @publisher.name %>
   </p>
   <%= link_to 'Edit', edit_publisher_path(@publisher) %>
-  <%= link_to 'Destroy', publisher_path(@publisher), method: :delete %>
-<% else %>
-  <p>No book found</p>
+ 
 <% end %>
+
+<h3> quanttity of books :<%=@publisher.books.count%></h3>
+<% @publisher.books.each do |book| %>
+  <p>
+    <%= book.title %>
+    <% if book.persisted? %>
+      <%= link_to 'Destroy', book_path(book), method: :delete %>
+   <% end %>
+  </p>
+
+<% end %>
+
+<p>book here</p>
