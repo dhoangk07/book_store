@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   # action
   def show
   	@book = Book.find(params[:id])
+  	@comment = @book.comments.new
   end
  
   # action
