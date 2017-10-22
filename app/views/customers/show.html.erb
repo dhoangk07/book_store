@@ -1,34 +1,17 @@
-<h1>customer <%= @customer.name %></h1>
+<h1>customer <%= @customers.name %></h1>
 
 <p>
-  <%= @customer.phone %>
+  <%= @customers.sex %>
 </p>
 
 <p>
-	<%= @customer.birth_year %>
+	<%= @customers.age %>
 </p>
 
 <% if @customer.present? %>
   <p>customer name: <%= @customer.name %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %>
-<%= link_to 'Destroy', customer_path(@customer), method: :delete %>
+<%= link_to 'Edit', edit_customer_path(@customers) %>
+<%= link_to 'Destroy', customer_path(@customers), method: :delete %>
 
-<h3>Reviews</h3>
-<% @customer.reviews.each do |review| %>
-  <p>
-  	<%= review.content %>
-  	<% if review.persisted? %>
-	  	<%= link_to 'Destroy', review_path(review), method: :delete %>
-	 <% end %>
-  </p>
-
-<% end %>
-
-<p>Review here</p>
-<%= form_for @review do |f| %>
-  <%= f.hidden_field :customer_id %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>
