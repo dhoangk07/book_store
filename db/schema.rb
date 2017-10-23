@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023054735) do
+ActiveRecord::Schema.define(version: 20171023121423) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -24,8 +24,26 @@ ActiveRecord::Schema.define(version: 20171023054735) do
     t.integer "quantity", default: 0
   end
 
+  create_table "books_category_ids", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_ids", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "catelogy_ids", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +59,11 @@ ActiveRecord::Schema.define(version: 20171023054735) do
     t.string "name"
     t.string "sex"
     t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +95,15 @@ ActiveRecord::Schema.define(version: 20171023054735) do
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "editor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "sex"
+    t.integer "age"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

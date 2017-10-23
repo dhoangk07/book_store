@@ -1,0 +1,11 @@
+  
+  <h1>Name: <%= @user.name %></h1>
+
+  <h1>Sex: <%= @user.sex %></h1>
+
+  <h1>Age: <%= @user.age %></h1>
+
+  <h1>Address: <%= @user.address %></h1>
+
+ <%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Destroy', user_path(@user), method: :delete %>
