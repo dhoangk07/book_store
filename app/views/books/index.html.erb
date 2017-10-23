@@ -2,6 +2,9 @@
 
 <h2>List of current books</h2>
 
+<h3> Quantity of books :<%= @books.count %></h3>
+<h3> Pirce of all books :<%= Book.sum(:price) %></h3>
+
 <%= link_to 'Publishers', publishers_path %>
 
 <%= link_to 'New book', new_book_path  %>
@@ -18,4 +21,3 @@
 
   <% end %>
 </ul>
-<h3> quantity of books :<%= @books.count%></h3>
