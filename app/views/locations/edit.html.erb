@@ -1,0 +1,26 @@
+<h1> Edit location</h1>
+
+<%= form_for @location do |f| %>
+   <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+  </p>
+
+  <p>
+    <%= f.label :district %>
+    <%= f.text_field :district %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

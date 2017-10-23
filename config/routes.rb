@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :reviews
   resources :customers
   resources :categories
+  resources :locations
+
 
   root to: 'books#index'
 
