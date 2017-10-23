@@ -12,6 +12,10 @@
   <%= @book.price %>
 </p>
 
+<p> Quantity:
+  <%= @book.quantity %>
+</p>
+
 <% if @book.publisher.present? %>
   <p>Publisher name: <%= @book.publisher.name %></p>
 <% end %>

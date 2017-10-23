@@ -9,6 +9,8 @@ class BooksController < ApplicationController
   	@comment = @book.comments.new
     # iincrease view count
     @book.increase_view_count
+    @quantity
+
   end
  
   # action
@@ -50,6 +52,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-  	params.require(:book).permit(:author, :title, :description, :publisher_id, :price)
+  	params.require(:book).permit(:author, :title, :description, :publisher_id, :price, :quantity)
   end
 end
