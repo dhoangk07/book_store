@@ -23,6 +23,16 @@
 <%= link_to 'Edit', edit_book_path(@book) %>
 <%= link_to 'Destroy', book_path(@book), method: :delete %>
 
+<h3>Locations</h3>
+<ul>
+<% @book.locations.each do |location| %>
+  <li>
+    <%= location.name %> 
+    <%= location.district %> 
+  </li>
+</ul>
+<% end %>
+
 <p>Comment here</p>
 <%= form_for @comment do |f| %>
   <%= f.hidden_field :book_id %>
