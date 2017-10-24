@@ -31,6 +31,11 @@
     <%= f.select :publisher_id, Publisher.pluck(:name, :id) %>
   </p>
 
+  <p>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.pluck(:name, :id) %>
+  </p>
+
   <%= f.submit %>
 
 <% end %>
