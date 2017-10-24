@@ -13,6 +13,20 @@
   <%= link_to 'New book', new_book_path  %>
 </p>
 
+<h3>Choose order</h3>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'Sort by name', books_path(order: 'name') %></li>
+    <li><%= link_to 'Sort by views count', books_path(order: 'views_count') %></li>
+    <li><%= link_to 'Sort by time', books_path(order: 'id') %></li>
+    
+  </ul>
+</div>
+
 
 <table  class="table table-striped">
     <thead  class="thead-inverse">
@@ -25,9 +39,9 @@
 
     </thead>
     <tbody>
-  <% @books.each do |book| %>
+  <% @books.each_with_index do |book, index| %>
     <tr>
-    	<td><%= link_to book.title, book_path(book) %></td>
+    	<td><%= link_to "#{index}. #{book.title}", book_path(book) %></td>
         <td><%= book.view_count %></td>
     	<td><%= book.author %></td>
     	<td><%= book.description %></td>

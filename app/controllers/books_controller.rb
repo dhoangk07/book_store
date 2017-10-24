@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
   def index
-  	@books = Book.all.order('view_count DESC')
+    if params[:order] == 'name'
+      @books = Book.order('title ASC')
+    elsif params[:order] == 'id' # ordered by views_count
+      @books = Book.order('id ASC')
+    else
+      @books = Book.order('view_count DESC')
+    end
   end
 
   # action
