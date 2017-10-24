@@ -2,6 +2,7 @@ class Book < ApplicationRecord
 	validates_presence_of :title
 	
 	belongs_to :publisher
+	belongs_to :category
 	has_many :comments
 	has_many :books_locations
 	has_many :locations, through: :books_locations

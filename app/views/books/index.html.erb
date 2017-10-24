@@ -21,6 +21,8 @@
         <th>Author</th>
         <th>Description</th>
         <th>Publisher</th>
+        <th>Category</th>
+
     </thead>
     <tbody>
   <% @books.each do |book| %>
@@ -32,9 +34,17 @@
         <td>
     	  <% if book.publisher.present? %>
             <%= book.publisher.name %>
-    	    <%= book.publisher.address %>
     	  <% end %>
-              
+
+
+        </td>
+
+        <td>
+            <% if book.category.present? %>
+            <%= book.category.name %>
+          <% end %>
+
+          
         </td>
     </tr>
 
