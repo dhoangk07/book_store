@@ -3,9 +3,9 @@
 
 <%= link_to 'New Publishers', new_publisher_path  %>
 
-<% @publishers.each do |publisher| %>
+<% @publishers.each_with_index do |publisher, index| %>
 
-    	<h3><%= link_to publisher.name, publisher_path(publisher) %></h3>
+    	<h3><i><%= index + 1 %></i><%= link_to publisher.name, publisher_path(publisher) %></h3>
     	<p><%= publisher.address %></p>
-    	
+    	  	
   <% end %>
