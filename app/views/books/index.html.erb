@@ -3,22 +3,41 @@
 <h2>List of current books</h2>
 
 <h3> Quantity of books :<%= @books.count %></h3>
-<h3> Pirce of all books :<%= Book.sum(:price) %></h3>
+<i> Price of all books :<%= Book.sum(:price) %></i>
 
-<%= link_to 'Publishers', publishers_path %>
+<p>
 
-<%= link_to 'New book', new_book_path  %>
-<ul>
+
+  <%= link_to 'Publishers', publishers_path %>
+
+  <%= link_to 'New book', new_book_path  %>
+</p>
+
+
+<table  class="table table-striped">
+    <thead  class="thead-inverse">
+        <th>Title</th>
+        <th>View count</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Publisher</th>
+    </thead>
+    <tbody>
   <% @books.each do |book| %>
-    <li>
-    	<h3><%= link_to book.title, book_path(book) %></h3>
-        <p>Views count: <%= book.view_count %></p>
-    	<p><%= book.author %></p>
-    	<p><%= book.description %></p>
-    	<% if book.publisher.present? %>
-    	  <p>Publisher name: <%= book.publisher.name %></p>
-    	<% end %>
-    </li>
+    <tr>
+    	<td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.view_count %></td>
+    	<td><%= book.author %></td>
+    	<td><%= book.description %></td>
+        <td>
+    	  <% if book.publisher.present? %>
+            <%= book.publisher.name %>
+    	    <%= book.publisher.address %>
+    	  <% end %>
+              
+        </td>
+    </tr>
 
   <% end %>
+</tbody>
 </ul>
