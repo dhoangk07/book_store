@@ -1,0 +1,12 @@
+<h2>Order List</h2>
+
+<%= link_to 'New orders', new_order_path  %>
+
+<% @orders.each do |order| %>
+
+    	<h3><%= link_to order.quantity, order_path(order) %></h3>
+    	<p><%= order.book_id %></p>
+    	<p><%= order.customer_id %></p>
+    	<p><%= order.total_price %></p>
+    	
+  <% end %>

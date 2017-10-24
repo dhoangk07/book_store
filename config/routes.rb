@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :dashboards
   resources :users
+  resources :orders
   
   root to: 'books#index'
 
