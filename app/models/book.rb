@@ -5,6 +5,6 @@ class Book < ApplicationRecord
 	has_many :comments
 
 	def increase_view_count
-		update_attribute(:view_count, view_count + 1)
+		update_column(:view_count, view_count + 1)
 	end
 end
