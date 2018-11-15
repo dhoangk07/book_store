@@ -1,20 +1,8 @@
-<% if @category.present? %>
-  <h1>category <%= @category.name %></h1>
+<h1>category <%= @category.name %></h1>
+<h3> quantity of books :<%=@category.books.count%></h3>
+<% @category.books.each do |book| %>
+  <p><%= book.title %></p>
 <% end %>
-  
-  <%= link_to 'Edit', edit_category_path(@category) %>
-
-  <%= link_to 'Destroy', category_path(@category), method: :delete %>
-
-  <h3> quantity of books :<%=@category.books.count%></h3>
-  <% @category.books.each do |book| %>
-
-  <p>
-    <%= book.title %>
-    <% if book.persisted? %>
-      <%= link_to 'Destroy', book_path(book), method: :delete %>
-   <% end %>
-  </p>
- 
-<% end %>
-
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Destroy', category_path(@category), method: :delete %> |
+<%= link_to 'Destroy', book_path(book), method: :delete %>

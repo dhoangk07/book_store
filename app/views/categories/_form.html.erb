@@ -1,0 +1,6 @@
+<div class="col-8 offset-2">
+  <%= simple_form_for @category do |e| %>
+    <%= f.input :name, label: false, placeholder: "Please input name" %>
+    <%= f.submit, "Create", class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>
