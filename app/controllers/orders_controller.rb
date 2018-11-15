@@ -1,13 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :find_order, only: %i[show edit update destroy]
   def index
   	@orders = Order.all
-    @order = Order.new
   end
   
   def show
-  	# @order = order.find(params[:id])
-    @order = Order.find_by(id: params[:id])
-
   end
 
   def new
@@ -15,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-  	# params
   	@order = Order.new(order_params)
   	if @order.save
   		redirect_to orders_path
@@ -25,16 +21,19 @@ class OrdersController < ApplicationController
   end
 
   def edit
-  	@order = Order.find(params[:id])
   end
  
   def update
-  	@order = Order.find(params[:id])
   	if @order.update_attributes(order_params)
   		redirect_to order_path(@order)
   	else
   		render :edit
   	end
+  end
+
+  private
+  def find_order
+    @order = Order.find(params[:id])
   end
 
   def order_params
