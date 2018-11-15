@@ -1,27 +1,2 @@
-<h1> Edit user</h1>
-
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :sex %>
-    <%= f.select :sex , [["Man", 'Man'], ["Woman", 'Woman']]  %>
-  </p>
-
-
-  <p>
-    <%= f.label :age %>
-    <%= f.text_field :age %>
-  </p>
-
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
-
-  <%= f.submit %>
-
-<% end %>
+<h1 class="text-center text-primary"> Edit user</h1>
+<%= render 'form' %>

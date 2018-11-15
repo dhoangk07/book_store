@@ -1,11 +1,12 @@
-  
-  <h1>Name: <%= @user.name %></h1>
-
-  <h1>Sex: <%= @user.sex %></h1>
-
-  <h1>Age: <%= @user.age %></h1>
-
-  <h1>Address: <%= @user.address %></h1>
-
- <%= link_to 'Edit', edit_user_path(@user) %>
-<%= link_to 'Destroy', user_path(@user), method: :delete %>
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="card-header">Profile</div>
+  <div class="card-body">
+    <h5 class="card-title"><h1>Name: <%= @user.name %></h1></h5>
+    <h5 class="card-title"><h1>Sex: <%= @user.sex %></h1></h5>
+    <h5 class="card-title"><h1>Age: <%= @user.age %></h1></h5>
+    <h5 class="card-title"><h1>Address: <%= @user.address %></h1></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <%= link_to 'Edit', edit_user_path(@user), class: "badge badge-pill badge-primary" %>
+    <%= link_to 'Destroy', user_path(@user), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-pill badge-primary"  %>
+  </div>
+</div> 
