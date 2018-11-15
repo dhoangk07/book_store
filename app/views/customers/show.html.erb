@@ -1,5 +1,4 @@
-<h1>customer <%= @customers.name %></h1>
-
+<h1 class="text-center text-primary"><%= @customers.name %></h1>
 <p>
   <%= @customers.sex %>
 </p>
@@ -13,5 +12,5 @@
 <% end %>
 
 <%= link_to 'Edit', edit_customer_path(@customers) %>
-<%= link_to 'Destroy', customer_path(@customers), method: :delete %>
+<%= link_to 'Destroy', customer_path(@customers), method: :delete, data: {confirm: "Are you sure?"} %>
 
