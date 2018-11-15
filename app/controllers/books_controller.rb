@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :find_book, only: %i[show edit update destroy]
   def index
     if params[:order] == 'name'
       @books = Book.order('title ASC')
@@ -9,22 +10,18 @@ class BooksController < ApplicationController
     end
   end
 
-  # action
   def show
-  	@book = Book.find(params[:id])
   	@comment = @book.comments.new
     # iincrease view count
     @book.increase_view_count
 
   end
  
-  # action
   def new
   	@book = Book.new
   end
 
   def create
-  	# params
   	@book = Book.new(book_params)
   	if @book.save
   		redirect_to books_path
@@ -35,11 +32,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-  	@book = Book.find(params[:id])
   end
 
   def update
-  	@book = Book.find(params[:id])
   	if @book.update_attributes(book_params)
   		redirect_to book_path(@book)
   	else
@@ -48,13 +43,15 @@ class BooksController < ApplicationController
   end
 
   def destroy
-  	@book = Book.find(params[:id])
   	@book.destroy
   	redirect_to books_path
   end
 
 
   private
+  def find_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
   	params.require(:book).permit(:author, :title, :description, :publisher_id, :category_id, :price, :quantity)

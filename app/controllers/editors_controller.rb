@@ -1,50 +1,48 @@
 class EditorsController < ApplicationController
+  before_action :find_editor , only: %i[show update edit destroy]
 	def index
-  	  @editors = Editor.all
-  	end
-
-  	def show
-  	# @editor = editor.find(params[:id])
-    @editor = Editor.find_by(id: params[:id])
-    @review = @editor.reviews.new
-
+	  @editors = Editor.all
 	end
 
-    def new
-  	@editor = Editor.new
-  	end
+  def show
+    @review = @editor.reviews.new
+	end
 
-  	def create
-  	# params
+  def new
+	 @editor = Editor.new
+	end
+
+	def create
   	@editor = Editor.new(editor_params)
   	if @editor.save
   		redirect_to editors_path
   	else
   		render :new
   	end
- 
   end
   
-  	def edit
-  	@editor = Editor.find(params[:id])
-  	end
-  
-  	def destroy
-  	  @editor = Editor.find(params[:id])
-  	  @editor.destroy
-  	  redirect_to editors_path
-  	end
- 
-  	def update
-	  	@editor = Editor.find(params[:id])
-	  	if @editor.update_attributes(editor_params)
-	  		redirect_to editor_path(@editor)
-	  	else
-	  		render :edit
-	  	end
-    end
+	def edit
+	end
 
-  	def editor_params
-  	  params.require(:editor).permit(:name, :phone, :birth_year)
+	def destroy
+	  @editor.destroy
+	  redirect_to editors_path
+	end
+
+	def update
+  	if @editor.update_attributes(editor_params)
+  		redirect_to editor_path(@editor)
+  	else
+  		render :edit
   	end
- end
+  end
+
+  private
+  def find_editor
+    @editor = Editor.find(params[:id])
+  end
+  
+	def editor_params
+	  params.require(:editor).permit(:name, :phone, :birth_year)
+	end
+end
