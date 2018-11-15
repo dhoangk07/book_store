@@ -1,67 +1,16 @@
-
-
-<h2>List of current books</h2>
-
-<h3> Quantity of books :<%= @books.count %></h3>
-<i> Price of all books :<%= Book.sum(:price) %></i>
-
-<p>
-
-
-  <%= link_to 'Publishers', publishers_path %>
-
-  <%= link_to 'New book', new_book_path  %>
-</p>
-
-<h3>Choose order</h3>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><%= link_to 'Sort by name', books_path(order: 'name') %></li>
-    <li><%= link_to 'Sort by views count', books_path(order: 'views_count') %></li>
-    <li><%= link_to 'Sort by time', books_path(order: 'id') %></li>
-    
-  </ul>
+<h2 class="text-center text-primary">List of Books</h2>
+<div class="col-8 offset-2">
+  <%= link_to 'Publishers', publishers_path, class: "badge badge-pill badge-primary" %>
+  <%= link_to 'Add New book', new_book_path, class: "badge badge-pill badge-primary"  %>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'Sort by name', books_path(order: 'name') %></li>
+      <li><%= link_to 'Sort by views count', books_path(order: 'views_count') %></li>
+      <li><%= link_to 'Sort by time', books_path(order: 'id') %></li>
+    </ul>
+  </div>
+  <%= render 'table', book: @book %>
 </div>
-
-
-<table  class="table table-striped">
-    <thead  class="thead-inverse">
-        <th>Title</th>
-        <th>View count</th>
-        <th>Author</th>
-        <th>Description</th>
-        <th>Publisher</th>
-        <th>Category</th>
-
-    </thead>
-    <tbody>
-  <% @books.each_with_index do |book, index| %>
-    <tr>
-    	<td><%= link_to "#{index}. #{book.title}", book_path(book) %></td>
-        <td><%= book.view_count %></td>
-    	<td><%= book.author %></td>
-    	<td><%= book.description %></td>
-        <td>
-    	  <% if book.publisher.present? %>
-            <%= book.publisher.name %>
-    	  <% end %>
-
-
-        </td>
-
-        <td>
-            <% if book.category.present? %>
-            <%= book.category.name %>
-          <% end %>
-
-          
-        </td>
-    </tr>
-
-  <% end %>
-</tbody>
-</ul>

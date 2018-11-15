@@ -1,0 +1,12 @@
+<div class="col-8 offset-2">
+  <%= simple_form_for @book do |f|%>
+    <%= f.input :title, label: false, placeholder: " Please input title" %>
+    <%= f.input :author, label: false, placeholder: " Please input author" %>
+    <%= f.input :description, label: false, placeholder: " Please input description" %>
+    <%= f.input :price, label: false %>
+    <%= f.input :quantity, label: false %>
+    <%= f.input :publisher, collection: Publisher.pluck(:name, :id) %>
+    <%= f.input :category, collection: Category.pluck(:name, :id) %>
+    <%= f.submit "Create", class: 'btn btn-primary btn-block btn-lg' %>
+  <% end %>
+</div> 
