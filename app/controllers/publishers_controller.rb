@@ -1,13 +1,10 @@
 class PublishersController < ApplicationController
+  before_action :find_publisher, only: %i[show edit update destroy]
   def index
   	@publishers = Publisher.all
-    @publisher = Publisher.new
   end
   
   def show
-  	# @publisher = Publisher.find(params[:id])
-    @publisher = Publisher.find_by(id: params[:id])
-
   end
 
   def new
@@ -15,8 +12,6 @@ class PublishersController < ApplicationController
   end
 
   def create
-  	# params
-  	@publisher = Publisher.new(publisher_params)
   	if @publisher.save
   		redirect_to publishers_path
   	else
@@ -25,16 +20,24 @@ class PublishersController < ApplicationController
   end
 
   def edit
-  	@publisher = Publisher.find(params[:id])
   end
  
   def update
-  	@publisher = Publisher.find(params[:id])
   	if @publisher.update_attributes(publisher_params)
   		redirect_to publisher_path(@publisher)
   	else
   		render :edit
   	end
+  end
+
+  def destroy
+    @publisher.destroy
+    redirect_to publishers_path
+  end
+
+  private
+  def find_publisher
+    @publisher = Publisher.find(params[:id])
   end
 
   def publisher_params
