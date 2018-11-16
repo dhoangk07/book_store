@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
 	def create
 	@location = Location.new(location_params)
   	if @location.save
+      flash[:success] = "You've already successfully created #{@location.name}"
   		redirect_to locations_path
   	else
   		render :new
@@ -23,26 +24,27 @@ class LocationsController < ApplicationController
 	def edit
 	end
   
-	def destroy
-	  @location.destroy
-	  redirect_to locations_path
-	end
- 
 	def update
   	if @location.update_attributes(location_params)
+      flash[:success] = "You've already successfully updated #{@location.name}"
   		redirect_to location_path(@location)
   	else
   		render :edit
   	end
   end
-
-  private
-
-  def find_location
-    @location = Location.find(params[:id])
+  
+  def destroy
+    @location.destroy
+    flash[:danger] = "You've already successfully deleted #{@location.name}"
+    redirect_to locations_path
   end
 
-	def location_params
-	  params.require(:location).permit(:name, :street, :address, :district)
-	end
+  private
+    def find_location
+      @location = Location.find(params[:id])
+    end
+
+  	def location_params
+  	  params.require(:location).permit(:name, :street, :address, :district)
+  	end
  end
