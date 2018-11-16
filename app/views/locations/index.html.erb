@@ -1,13 +1,8 @@
-
 <h2>Location List</h2>
-
 <%= link_to 'New Locations', new_location_path  %>
-
 <% @locations.each do |location| %>
-
-    	<h3><%= link_to location.name, location_path(location) %></h3>
-    	<p><%= location.address %></p>
-    	<p><%= location.street %></p>
-    	<p><%= location.district %></p>
-    	
-  <% end %>
+	<h3><%= link_to location.name, location_path(location) %></h3>
+	<p><%= location.address %></p>
+	<p><%= location.street %></p>
+	<p><%= location.district %></p>
+<% end %>

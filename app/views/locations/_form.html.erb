@@ -1,0 +1,9 @@
+<div class="col-6 offset-2">
+  <%= simple_form_for @location do |f| %>
+    <%= f.input :name, label: false, placeholder: "Please input name" %>
+    <%= f.input :address, label: false, placeholder: "Please input address" %>
+    <%= f.input :street, label: false, placeholder: "Please input street" %>
+    <%= f.input :district, label: false, placeholder: "Please input district" %>
+    <%= f.submit "Create", class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>
