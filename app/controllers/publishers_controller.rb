@@ -12,6 +12,7 @@ class PublishersController < ApplicationController
   end
 
   def create
+    @publisher = Publisher.new(publisher_params)
   	if @publisher.save
   		redirect_to publishers_path
   	else
@@ -41,6 +42,6 @@ class PublishersController < ApplicationController
   end
 
   def publisher_params
-  	params.require(:publisher).permit(:name, :address, :publisher_id)
+  	params.require(:publisher).permit(:name, :address)
   end
 end
