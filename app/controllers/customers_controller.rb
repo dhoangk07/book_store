@@ -14,6 +14,7 @@ class CustomersController < ApplicationController
   def create
   	@customer = Customer.new(customer_params)
   	if @customer.save
+      flash[:success] = "You've already successfully created #{@customer.name}"
   		redirect_to customers_path
   	else
   		render :new
@@ -26,6 +27,7 @@ class CustomersController < ApplicationController
 
   def update
   	if @customer.update_attributes(customer_params)
+      flash[:success] = "You've already successfully updated #{@customer.name}"
   		redirect_to customer_path(@customer)
   	else
   		render :edit
@@ -34,6 +36,7 @@ class CustomersController < ApplicationController
 
   def destroy
   	@customer.destroy
+    flash[:danger] = "You've already successfully deleted #{@customer.name}"
   	redirect_to customers_path
   end
 
