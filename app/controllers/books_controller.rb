@@ -44,7 +44,7 @@ class BooksController < ApplicationController
 
   def destroy
   	@book.destroy
-    flash[:danger] = "You've already successfully destroy #{@book.title}"
+    flash[:danger] = "You've already successfully deleted #{@book.title}"
   	redirect_to books_path
   end
 
