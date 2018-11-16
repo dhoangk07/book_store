@@ -14,7 +14,6 @@ class BooksController < ApplicationController
   	@comment = @book.comments.new
     # iincrease view count
     @book.increase_view_count
-
   end
  
   def new
@@ -24,11 +23,11 @@ class BooksController < ApplicationController
   def create
   	@book = Book.new(book_params)
   	if @book.save
+      flash[:success] = "You've already successfully created #{@book.title}"
   		redirect_to books_path
   	else
   		render :new
   	end
- 
   end
 
   def edit
@@ -36,6 +35,7 @@ class BooksController < ApplicationController
 
   def update
   	if @book.update_attributes(book_params)
+      flash[:success] = "You've already successfully updated #{@book.title}"
   		redirect_to book_path(@book)
   	else
   		render :edit
@@ -44,6 +44,7 @@ class BooksController < ApplicationController
 
   def destroy
   	@book.destroy
+    flash[:danger] = "You've already successfully destroy #{@book.title}"
   	redirect_to books_path
   end
 
