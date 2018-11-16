@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   def create
   	@order = Order.new(order_params)
   	if @order.save
+      flash[:success] = "You've already successfully created order"
   		redirect_to orders_path
   	else
   		render :new
@@ -25,10 +26,17 @@ class OrdersController < ApplicationController
  
   def update
   	if @order.update_attributes(order_params)
+      flash[:success] = "You've already successfully updated order"
   		redirect_to order_path(@order)
   	else
   		render :edit
   	end
+  end
+
+  def destroy
+    @order.destroy
+    flash[:danger] = "You've already successfully deleted order"
+    redirect_to orders_path
   end
 
   private
