@@ -1,0 +1,7 @@
+<div class="col-8 offset-2">
+  <%= simple_form_for @publisher do |f| %>
+    <%= f.input :name, label: false, placeholder: "Please input name" %>
+    <%= f.input :address, label: false, placeholder: "Please input address" %>
+    <%= f.submit "Create", class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>
