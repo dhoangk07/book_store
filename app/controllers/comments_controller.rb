@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   	# params
   	@comment = Comment.new(comment_params)
   	if @comment.save
+      flash[:success] = "You've already successfully created comment"
   		redirect_to book_path(@comment.book)
   	end
   end
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:danger] = "You've already successfully deleted comment"
     redirect_to book_path(@comment.book)
   end
 
