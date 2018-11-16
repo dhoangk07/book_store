@@ -1,21 +1,9 @@
-<h1>Editors</h1>
-
+<h1 class="text-center text-primanry">Editors</h1>
 <%= link_to 'New Editor', new_editor_path  %>
-<ul>
-
 <% @editors.each do |editor| %>
-
   <h3>Name: <%= link_to editor.name, editor_path(editor) %></h3>
-
-  <p>
-  Phone:
-  <%= editor.phone %></p>
-
-  <p>
-  Birthday year:
-  <%= editor.birth_year %></p>
- 
- 
+  <p>Phone: <%= editor.phone %></p>
+  <p>Birthday year:<%= editor.birth_year %></p>
  <% end %>
 
 

@@ -1,15 +1,2 @@
-<h1> Editors</h1>
-
-<%= form_for @editor do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-
-  <%= f.label :birth_year %>
-  <%= f.text_area :birth_year %>
-
-  <%= f.submit %>
-
-<% end %>
+<h1 class="text-center text-primanry"> Editors</h1>
+<%= render 'form' %>
