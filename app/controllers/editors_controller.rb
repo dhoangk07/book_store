@@ -1,5 +1,5 @@
 class EditorsController < ApplicationController
-  before_action :find_editor , only: %i[show update edit destroy]
+  before_action :find_editor, only: %i[show update edit destroy]
 	def index
 	  @editors = Editor.all
 	end
@@ -15,6 +15,7 @@ class EditorsController < ApplicationController
 	def create
   	@editor = Editor.new(editor_params)
   	if @editor.save
+      flash[:success] = "You've already successfully created #{@editor.name}"
   		redirect_to editors_path
   	else
   		render :new
@@ -24,17 +25,19 @@ class EditorsController < ApplicationController
 	def edit
 	end
 
-	def destroy
-	  @editor.destroy
-	  redirect_to editors_path
-	end
-
 	def update
   	if @editor.update_attributes(editor_params)
+      flash[:success] = "You've already successfully updated #{@editor.name}"
   		redirect_to editor_path(@editor)
   	else
   		render :edit
   	end
+  end
+
+  def destroy
+    @editor.destroy
+    flash[:danger] = "You've already successfully deleted #{@editor.name}"
+    redirect_to editors_path
   end
 
   private
