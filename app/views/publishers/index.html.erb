@@ -1,6 +1,25 @@
-<h2 class="text-center text-primanry">Publisher List</h2>
+<h2 class="text-center text-primary">Publisher List</h2>
+<div class="col-8 offset-2">
+  <table class="table table-striped">
+    <thead class="border-off">
+      <tr class="text-center text-primary">
+        <th>No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @publishers.each_with_index do |publisher,index| %>
+        <tr class="text-center text-default">
+          <td><%= index +1 %></td>
+          <td><%= publisher.name %></td>
+          <td><%= publisher.address %></td>
+          <td><%= render 'action', publisher: publisher %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<% @publishers.each_with_index do |publisher, index| %>
-	<h3><i><%= index + 1 %></i><%= link_to publisher.name, publisher_path(publisher) %></h3>
-	<p><%= publisher.address %></p>
-<% end %>
+
