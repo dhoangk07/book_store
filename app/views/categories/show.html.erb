@@ -1,8 +1,9 @@
-<h1>category <%= @category.name %></h1>
-<h3> quantity of books :<%=@category.books.count%></h3>
-<% @category.books.each do |book| %>
-  <p><%= book.title %></p>
-<% end %>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Destroy', category_path(@category), method: :delete %> |
-<%= link_to 'Destroy', book_path(book), method: :delete %>
+<div class="col-8 offset-2">
+  <h2 class="text-left text-primary">Category: <%= @category.name %></h2>
+  <h4 class="text-left text-primary"> Quantity of books :<%=@category.books.count%></h4>
+  <% @category.books.each do |book| %>
+    <p><%= book.title %></p>
+  <% end %>
+  <%= link_to 'Edit', edit_category_path(@category), class: "badge badge-primary" %> |
+  <%= link_to 'Destroy', category_path(@category), method: :delete , data: { confirm: "Are you sure?"}, class: "badge badge-warning"%> 
+</div>

@@ -1,5 +1,7 @@
-<h2 class="text-center text-primary">Category List</h2>
-<%= link_to 'New Categories', new_category_path  %>
-<% @categories.each do |category| %>
-  <h3><%= link_to category.name, category_path(category) %></h3>
-<% end %>
+<div class="col-8 offset-2">
+  <h2 class="text-center text-primary">Category List</h2>
+  <%= link_to 'New Categories', new_category_path  %>
+  <% @categories.each do |category| %>
+    <h3 class="text-primary text-capitalize"><%= link_to category.name, category_path(category) %></h3>
+  <% end %>
+</div>
