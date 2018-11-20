@@ -1,10 +1,29 @@
-<h1 class="text-center text-primanry">Editors</h1>
-<%= link_to 'New Editor', new_editor_path  %>
-<% @editors.each do |editor| %>
-  <h3>Name: <%= link_to editor.name, editor_path(editor) %></h3>
-  <p>Phone: <%= editor.phone %></p>
-  <p>Birthday year:<%= editor.birth_year %></p>
- <% end %>
+<div class="col-8 offset-2">
+<h1 class="text-center text-primary">Editors</h1>
+<%= link_to 'New Editor', new_editor_path, class:"badge badge-pill badge-primary"  %>
+  <table class="table table-striped">
+    <thead class="border-off">
+      <tr class="text-center text-primary">
+        <th>No</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Birth Year</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @editors.each_with_index do |editor,index| %>
+        <tr class="text-center text-primary">
+          <td><%= index +1 %></td>
+          <td><%= editor.name %></td>
+          <td><%= editor.phone %></td>
+          <td><%= editor.birth_year %></td>
+          <td><%= render 'action', editor: editor %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 
 
