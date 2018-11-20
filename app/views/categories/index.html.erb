@@ -1,7 +1,22 @@
 <div class="col-8 offset-2">
   <h2 class="text-center text-primary">Category List</h2>
-  <%= link_to 'New Categories', new_category_path  %>
-  <% @categories.each do |category| %>
-    <h3 class="text-primary text-capitalize"><%= link_to category.name, category_path(category) %></h3>
-  <% end %>
+  <%= link_to "New Category", new_category_path, class: "badge badge-pill badge-primary"  %>
+  <table class="table table-striped">
+    <thead class="border-off">
+      <tr class="text-center text-primary">
+        <th>No</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each_with_index do |category,index| %>
+        <tr class="text-center text-primary">
+          <td><%= index +1 %></td>
+          <td class="text-capitalize"><%= category.name %></td>
+          <td><%= render 'action', category: category %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
