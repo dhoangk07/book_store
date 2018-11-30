@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		redirect_to users_path
+      flash[:success] = "You've already successfully created #{@user.name}"
   	else
   		render :new
   	end
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   def update
   	if @user.update_attributes(user_params)
   		redirect_to user_path(@user)
+      flash[:success] = "You've already successfully updated #{@user.name}"
   	else
   		render :edit
   	end
@@ -34,14 +36,15 @@ class UsersController < ApplicationController
   def destroy
   	@user.destroy
   	redirect_to users_path
+    flash[:success] = "You've already successfully deleted #{@user.name}"
   end
 
   private
-  def find_user
-    @user = User.find(params[:id])
-  end
+    def find_user
+      @user = User.find(params[:id])
+    end
 
-  def user_params
-  	params.require(:user).permit(:name, :sex, :age, :address)
-  end
+    def user_params
+    	params.require(:user).permit(:name, :sex, :age, :address)
+    end
 end

@@ -50,11 +50,11 @@ class BooksController < ApplicationController
 
 
   private
-  def find_book
-    @book = Book.find(params[:id])
-  end
+    def find_book
+      @book = Book.find(params[:id])
+    end
 
-  def book_params
-  	params.require(:book).permit(:author, :title, :description, :publisher_id, :category_id, :price, :quantity)
-  end
+    def book_params
+    	params.require(:book).permit(:author, :title, :description, :publisher_id, :category_id, :price, :quantity)
+    end
 end

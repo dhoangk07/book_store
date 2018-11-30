@@ -41,11 +41,11 @@ class EditorsController < ApplicationController
   end
 
   private
-  def find_editor
-    @editor = Editor.find(params[:id])
-  end
-  
-	def editor_params
-	  params.require(:editor).permit(:name, :phone, :birth_year)
-	end
+    def find_editor
+      @editor = Editor.find(params[:id])
+    end
+    
+  	def editor_params
+  	  params.require(:editor).permit(:name, :phone, :birth_year)
+  	end
 end
