@@ -1,8 +1,8 @@
 <div class="col-8 offset-2">
   <%= simple_form_for @customer do |f| %>
     <%= f.input :name, label: false, placeholder: "Please input name" %>
-    <%= f.input :sex, :collection => [['Man',1],['Woman',2]] %>
+    <%= f.input :sex, label: false, prompt: "Sex", :collection => [['Man',"Man"],['Woman',"Woman"]] %>
     <%= f.input :age, label: false, placeholder: "Please input age" %>
-    <%= f.submit, "Create", class: "btn btn-primary btn-block"%>
+    <%= f.submit "Create", class: "btn btn-primary btn-block"%>
   <% end %>
 </div>

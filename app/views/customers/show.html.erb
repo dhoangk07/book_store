@@ -1,16 +1,13 @@
-<h1 class="text-center text-primary"><%= @customers.name %></h1>
-<p>
-  <%= @customers.sex %>
-</p>
-
-<p>
-	<%= @customers.age %>
-</p>
-
-<% if @customer.present? %>
-  <p>customer name: <%= @customer.name %></p>
-<% end %>
-
-<%= link_to 'Edit', edit_customer_path(@customers) %>
-<%= link_to 'Destroy', customer_path(@customers), method: :delete, data: {confirm: "Are you sure?"} %>
-
+<div class="col-8 offset-2">
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%= @customer.name %></div>
+    <div class="card-body">
+      <h5 class="card-title">Profile Customer</h5>
+      <p class="card-text">Sex: <%= @customer.sex %></p>
+      <p class="card-text">Age: <%= @customer.age %></p>
+      <p class="card-text">Name: <%= @customer.name %></p>
+    </div>
+  <%= link_to 'Edit', edit_customer_path(@customer), class: "badge badge-pill badge-warning" %> 
+  <%= link_to 'Destroy', customer_path(@customer), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-pill badge-warning" %>
+  </div>
+</div>
