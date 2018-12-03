@@ -1,4 +1,15 @@
 class Book < ApplicationRecord
+	# Schema Information
+	# t.string "title"
+	# t.string "author"
+	# t.text "description"
+	# t.integer "publisher_id"
+	# t.integer "view_count", default: 0
+	# t.float "price", default: 0.0
+	# t.integer "quantity", default: 0
+	# t.string "category_id"
+	# t.datetime "created_at", null: false
+	# t.datetime "updated_at", null: false
 	max_paginates_per 25
 	validates_presence_of :title
 	belongs_to :publisher
