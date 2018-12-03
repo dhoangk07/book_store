@@ -2,11 +2,13 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[show edit update destroy]
   def index
     if params[:order] == 'name'
-      @books = Book.order('title ASC')
+      @books = Book.order('title ASC').page params[:page]
     elsif params[:order] == 'id' # ordered by views_count
-      @books = Book.order('id ASC')
+      @books = Book.order('id ASC').page params[:page]
+    elsif params[:search].present?
+      @books = Book.search(params[:search]).page params[:page]
     else
-      @books = Book.order('view_count DESC')
+      @books = Book.order('view_count DESC').page params[:page]
     end
   end
 

@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+	max_paginates_per 25
 	validates_presence_of :title
 	
 	belongs_to :publisher
