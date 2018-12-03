@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :books
+  resources :books do
+    get :search, on: :collection
+  end
+
   resources :publishers
   resources :editors
   resources :comments
