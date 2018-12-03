@@ -11,6 +11,8 @@
       <li><%= link_to 'Sort by time', books_path(order: 'id'), class: 'padding-left' %></li>
     </ul>
   </div>
+  <br>
+  <span class="float-right"><%= paginate @books, window: 2  %></span> 
   <%= render 'table', book: @book %>
-  <%= paginate @books, window: 2  %>
+  <span class="float-right"><%= paginate @books, window: 2  %></span> 
 </div>
