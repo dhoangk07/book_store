@@ -1,8 +1,27 @@
-<h2>Location List</h2>
-<%= link_to 'New Locations', new_location_path  %>
-<% @locations.each do |location| %>
-	<h3><%= link_to location.name, location_path(location) %></h3>
-	<p><%= location.address %></p>
-	<p><%= location.street %></p>
-	<p><%= location.district %></p>
-<% end %>
+<h2 class="text-center text-primary">Listing of Locations</h2>
+<div class="container">
+  <%= link_to 'New Location', new_location_path, class: "badge badge-pill badge-primary" %>
+  <table class="table table-striped">
+    <thead>
+      <tr class="border-off text-center text-primary">
+        <th>No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Street</th>
+        <th>District</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @locations.each_with_index do |location,index| %>
+        <tr class="text-center text-primary">
+          <td><%= index +1 %></td>
+          <td><%= location.name %></td>
+          <td><%= location.address %></td>
+          <td><%= location.street %></td>
+          <td><%= location.district %></td>
+          <td><%= render 'action', location: location %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
