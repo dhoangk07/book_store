@@ -1,20 +1,21 @@
 <h2 class="text-center text-primary">Publisher List</h2>
 <div class="col-8 offset-2">
+<%= link_to 'New Publisher', new_publisher_path, class: "badge badge-pill badge-primary" %>
   <table class="table table-striped">
     <thead class="border-off">
       <tr class="text-center text-primary">
         <th>No</th>
-        <th>Name</th>
-        <th>Address</th>
+        <th class="text-right">Name</th>
+        <th class="text-left">Address</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <% @publishers.each_with_index do |publisher,index| %>
-        <tr class="text-center text-default">
+        <tr class="text-center text-primary">
           <td><%= index +1 %></td>
-          <td><%= publisher.name %></td>
-          <td><%= publisher.address %></td>
+          <td class="text-right"><%= publisher.name %></td>
+          <td class="text-left"><%= publisher.address %></td>
           <td><%= render 'action', publisher: publisher %></td>
         </tr>
       <% end %>
