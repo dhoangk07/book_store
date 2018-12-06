@@ -72,3 +72,4 @@ end
   content = Faker::Lorem.paragraph(30)
   Comment.create(content: content, book_id: Book.pluck(:id).sample)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
