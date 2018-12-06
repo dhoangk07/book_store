@@ -5,7 +5,10 @@
     <thead class="border-off">
       <tr class="text-center text-primary">
         <th>No</th>
-        <th>Name</th>
+        <th ></th>
+        <th ></th>
+        <th ></th>
+        <th >Name</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -13,7 +16,10 @@
       <% @categories.each_with_index do |category,index| %>
         <tr class="text-center text-primary">
           <td><%= index +1 %></td>
-          <td class="text-capitalize"><%= category.name %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-capitalize text-left"><%= category.name %></td>
           <td><%= render 'action', category: category %></td>
         </tr>
       <% end %>
