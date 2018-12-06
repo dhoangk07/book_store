@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid px-0">
   <table class="table table-striped">
     <thead class="thead-inverse">
       <tr class="border-off text-center text-primary">
@@ -9,6 +9,7 @@
         <th>Description</th>
         <th>Publisher</th>
         <th>Category</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
               <%= book.category.name %>
             <% end %>
           </td>
+          <td class="px-0"><%= render 'action', book: book %></td>
         </tr>
       <% end %>
     </tbody>

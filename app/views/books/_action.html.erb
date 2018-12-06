@@ -1,12 +1,9 @@
-<div class="btn-group">
-  <button type="button" class="btn btn-info btn-sm">Action</button>
-  <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item padding-left" href="#"><%= link_to 'Show', publisher_path(publisher) ,class: "padding-left"%></a>
-    <a class="dropdown-item padding-left" href="#"><%= link_to "Edit", edit_publisher_path(publisher), class: "padding-left"%></a>
-    <a class="dropdown-item padding-left" href="#"><%= link_to "Destroy", publisher_path(publisher),
-                  method: :delete,
-                  data: { confirm: "Are you sure? "} ,class: "padding-left"%></a>
-</div>
+<%= link_to book_path(book) do %>
+  <i class="fa fa-eye" title="Show"></i>
+<% end %>
+<%= link_to edit_book_path(book) do %>
+  <i class="fa fa-edit" title="Edit"></i>
+<% end %>
+<%= link_to book_path(book), method: :delete, data: { confirm: "Are you sure? "} do %>
+  <i class="fa fa-trash" title="Destroy">
+<% end %>
