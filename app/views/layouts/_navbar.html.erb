@@ -33,26 +33,19 @@
       
       <div class="float-right">
         <% if user_signed_in? %>
-          <div class="btn-group">
-            <a href="#"><%= link_to 'New Book', new_book_path, class: "dropdown-item text-primary" %></a> 
-            <a href="#"><%=link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item text-danger'%></a>
-          </div>
+          <li class="navbar-nav ">
+            <a href="#"><%=link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link text-danger'%></a>
+          </li>
         <% else %>
-          <div class="btn-group">
-            <a  href="#"><%= link_to "Sign In", new_user_session_path, class: "dropdown-item text-success" %></a>
-            <a href="#"><%=link_to 'Sign Up', new_user_registration_path, class: 'dropdown-item text-primary'%></a>
-          </div>
+          <li class="nav-item">
+            <a  href="#"><%= link_to "Sign In", new_user_session_path, class: "nav-link text-primary"%></a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#"><%=link_to 'Sign Up', new_user_registration_path, class: "nav-link text-primary"%></a>
+          </li>
         <% end %>
       </div>
     </div>
   </nav>
 </div>
-
-    
-    
-    
-    
-    
-    
-     
-    
